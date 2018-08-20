@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Soma</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="Numero 1: " />
+            <h:inputText value="#{somaBean.n1}" />
+            <h:outputLabel value="Numero 2: " />
+            <h:inputText value="#{somaBean.n2}"/>
+            <h:commandButton value="Somar" action="#{somaBean.somar()}" />
+            <h:outputText value="#{somaBean.result}" />
+        </h:form>
+    </h:body>
+</html>
+
