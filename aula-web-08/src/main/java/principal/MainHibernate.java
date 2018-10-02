@@ -13,7 +13,6 @@ public class MainHibernate {
 
         // Cria um novo objeto de Pessoa
         Pessoa p = new Pessoa();
-        p.setCodigo(101);
         p.setNome("Professor de LP I");
         p.setEndereco("Av. Santa Rosa, 2405");
 
