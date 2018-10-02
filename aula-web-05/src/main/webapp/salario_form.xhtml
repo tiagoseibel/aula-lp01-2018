@@ -2,21 +2,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Salario Liquido</title>
     </h:head>
     <h:body>
         <ui:composition template="modelo.xhtml">
             <ui:define name="conteudo">
+                <h:messages />
                 Dados do Colaborador
                 <h:form>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="Nome:" />
-                        <h:inputText value="#{salarioBean.nome}" />
-
+                        <h:panelGroup>
+                            <h:inputText id="nome" value="#{salarioBean.nome}" label="Nome" required="true">
+                                <f:validateLength minimum="10" maximum="100" />
+                            </h:inputText>
+                            <h:message for="nome" style="color:red" />
+                        </h:panelGroup>
+                        
                         <h:outputLabel value="Salário base:" />
-                        <h:inputText value="#{salarioBean.salarioBase}"/>
+                        <h:inputText value="#{salarioBean.salarioBase}" label="Salário Base">
+                            <f:validateDoubleRange minimum="900.0" maximum="30000.0" />
+                        </h:inputText>
 
                         <h:commandButton value="Calcular salário" action="#{ salarioBean.calcularSalario() }"/>
                     </h:panelGrid>
