@@ -10,5 +10,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <mapping class="model.Pessoa"/>
+        <mapping class="model.Departamento"/>
     </session-factory>
 </hibernate-configuration>

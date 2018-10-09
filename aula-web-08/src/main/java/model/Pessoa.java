@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +17,10 @@ public class Pessoa implements Serializable {
     private int codigo;
     private String nome;
     private String endereco;
-
+    // Relacionamento N:1
+    @ManyToOne
+    private Departamento departamento;
+    
     public int getCodigo() {
         return codigo;
     }
@@ -39,6 +43,14 @@ public class Pessoa implements Serializable {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
 }
