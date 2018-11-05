@@ -24,6 +24,14 @@ public class DepartamentoBean implements Serializable {
     public void atualizarAction() {
         this.departamentos = departamentoDAO.findAll();
     }
+
+    public void selectItem(Departamento dpt) {
+        this.departamento = dpt;
+    }
+    
+    public void limpaForm(){
+        this.departamento = new Departamento();
+    }
     
     public void removeAction(Departamento dpt) {
         departamentoDAO.delete(dpt);

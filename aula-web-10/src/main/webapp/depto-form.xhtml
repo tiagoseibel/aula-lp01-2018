@@ -11,10 +11,17 @@
         <h1>Manter Departamentos</h1>
         <br />
         <h:form>
+            <f:metadata>
+                <f:viewAction action="#{departamentoBean.atualizarAction()}" rendererType="preRenderView"/>
+            </f:metadata>
+            <h:inputHidden value="#{departamentoBean.departamento.codigo}" />
             <h:panelGrid columns="2">
                 <h:outputLabel value="Nome do Departamento" />
                 <h:inputText value="#{departamentoBean.departamento.descricao}" />
                 <h:commandButton action="#{departamentoBean.insertAction()}" value="Gravar">
+                    <f:ajax render="@form" execute="@form" />
+                </h:commandButton>
+                <h:commandButton action="#{departamentoBean.limpaForm()}" value="Novo">
                     <f:ajax render="@form" execute="@form" />
                 </h:commandButton>
             </h:panelGrid>
@@ -37,7 +44,12 @@
                                      onclick="return confirm('Remover departamento?');" >
                         <f:ajax render="@form" execute="@form" />
                     </h:commandButton>
-                </p:column>    
+                </p:column>
+                <p:column headerText="">
+                    <h:commandButton action="#{departamentoBean.selectItem(item)}" value="Selecionar" >
+                        <f:ajax render="@form" execute="@form" />
+                    </h:commandButton>
+                </p:column>
             </p:dataTable>
         </h:form>
     </h:body>
