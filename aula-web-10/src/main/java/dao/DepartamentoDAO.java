@@ -28,4 +28,8 @@ public class DepartamentoDAO {
     public List<Departamento> findAll() {
         return session.createQuery("select d from Departamento d").list();
     }
+    
+    public Departamento findById(int id) {
+        return session.get(Departamento.class, id);
+    }
 }
