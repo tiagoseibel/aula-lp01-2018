@@ -30,18 +30,6 @@ public class ReportsUtil {
                 .getConnection();
     }
 
-    public static void main(String[] args) {
-        try {
-            PreparedStatement ps = getConnection().prepareStatement("select * from colaborador");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                System.out.println("" + rs.getString("nome"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportsUtil.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void imprimirRelatorio(String nomeRelatorio, Map parametros) {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 
